@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-header bg-dark text-light">Level 2</div>
+    <div class="card-body">
+        <p>Using the SportsORM, complete all the following queries and show their results on Level2.cshtml.</p>
+        <ol>
+            <li>...all teams in the Atlantic Soccer Conference</li>
+            @foreach (Team t in ViewBag.TeamsInASC)
+            {
+                <ul>@t.TeamName</ul>
+            }
+            <li>...all (current) players on the Boston Penguins (Hint: Boston is the Location, Penguins is the TeamName)
+            </li>
+            @foreach (var p in ViewBag.CurrPlayers)
+            {
+                <ul>@p.CurrentTeam.TeamName</ul>
+            }
+            <li>...all (current) players in the International Collegiate Baseball Conference</li>
+            @foreach (var p in ViewBag.CurrIntPlayers)
+            {
+                <ul>@p.CurrentTeam.TeamName</ul>
+                <ul>@p.FirstName @p.LastName</ul>
+            }
+            <li>...all (current) players in the American Conference of Amateur Football with last name "Lopez"</li>
+            @foreach (Player p in ViewBag.FootballLopez)
+            {
+                <ul>@p.FirstName @p.LastName of the @p.CurrentTeam.Location @p.CurrentTeam.TeamName</ul>
+            }
+            <li>...all football players</li>
+            @foreach (Player p in ViewBag.AllFootballPlayers)
+            {
+                <ul> @p.FirstName @p.LastName of the @p.CurrentTeam.Location @p.CurrentTeam.TeamName
+                    @p.CurrentTeam.CurrLeague.Sport team.</ul>
+            }
+            <li>...all teams with a (current) player named "Sophia"</li>
+            @foreach (Player p in ViewBag.Sophia)
+            {
+                <ul> @p.FirstName</ul>
+            }
+            <li>...everyone with the last name "Flores" who DOESN'T (currently) play for the Washington Roughriders</li>
+            @foreach (Player p in ViewBag.NotWashington)
+            {
+                <ul> @p.FirstName @p.LastName</ul>
+            }
+        </ol>
+    </div>
+</div>
